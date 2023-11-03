@@ -1,12 +1,19 @@
 #include "Ball.hpp"
 #include <cmath>
 
+
+Ball::Ball(const Point &cen, const Velocity &vel, const Color &col,
+	double rad, bool isColl) :
+		center(cen), velocity(vel), color(col), radius(rad), isCollidable(isColl) {	
+}
+
 /**
  * Задает скорость объекта
  * @param velocity новое значение скорости
  */
-void Ball::setVelocity(const Velocity& velocity) {
+void Ball::setVelocity(const Velocity& vel) {
     // TODO: место для доработки
+	velocity = vel;
 }
 
 /**
@@ -14,7 +21,7 @@ void Ball::setVelocity(const Velocity& velocity) {
  */
 Velocity Ball::getVelocity() const {
     // TODO: место для доработки
-    return {};
+    return velocity;
 }
 
 /**
@@ -27,14 +34,17 @@ Velocity Ball::getVelocity() const {
  */
 void Ball::draw(Painter& painter) const {
     // TODO: место для доработки
+	// Center, Radius, Color
+	painter.draw(center, radius, color);
 }
 
 /**
  * Задает координаты центра объекта
  * @param center новый центр объекта
  */
-void Ball::setCenter(const Point& center) {
+void Ball::setCenter(const Point& cen) {
     // TODO: место для доработки
+	center = cen;
 }
 
 /**
@@ -42,7 +52,7 @@ void Ball::setCenter(const Point& center) {
  */
 Point Ball::getCenter() const {
     // TODO: место для доработки
-    return {};
+    return center;
 }
 
 /**
@@ -52,7 +62,7 @@ Point Ball::getCenter() const {
  */
 double Ball::getRadius() const {
     // TODO: место для доработки
-    return {};
+    return radius;
 }
 
 /**
@@ -64,5 +74,5 @@ double Ball::getRadius() const {
  */
 double Ball::getMass() const {
     // TODO: место для доработки
-    return {};
+    return PI * pow(radius, 3) * (4.0 / 3.0);
 }
